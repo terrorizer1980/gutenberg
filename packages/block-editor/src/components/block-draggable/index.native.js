@@ -17,6 +17,7 @@ import { Draggable } from '@wordpress/components';
 import { useSelect, useDispatch } from '@wordpress/data';
 import { useEffect, useRef } from '@wordpress/element';
 import { usePreferredColorSchemeStyle } from '@wordpress/compose';
+import { generateHapticFeedback } from '@wordpress/react-native-bridge';
 
 /**
  * Internal dependencies
@@ -122,6 +123,7 @@ const BlockDraggableWrapper = ( { children } ) => {
 		if ( foundClientId ) {
 			startDraggingBlocks( [ foundClientId ] );
 			runOnUI( startScrolling )( position.y );
+			generateHapticFeedback();
 		} else {
 			// We stop dragging if no block is found.
 			runOnUI( stopDragging )();
