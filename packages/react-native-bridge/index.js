@@ -436,4 +436,13 @@ export function sendEventToHost( eventName, properties ) {
 	);
 }
 
+/**
+ * Generate haptic feedback (only on iOS).
+ */
+export function generateHapticFeedback() {
+	if ( isIOS ) {
+		RNReactNativeGutenbergBridge.generateHapticFeedback();
+	}
+}
+
 export default RNReactNativeGutenbergBridge;
