@@ -8,6 +8,7 @@ import classnames from 'classnames';
  */
 import {
 	useBlockProps,
+	BlockButton,
 	BlockControls,
 	InspectorControls,
 	RichText,
@@ -253,7 +254,7 @@ export default function SearchEdit( {
 
 		return (
 			<>
-				{ buttonUseIcon && (
+				{ buttonUseIcon && ( // TODO
 					<button
 						type="button"
 						className={ buttonClasses }
@@ -269,7 +270,7 @@ export default function SearchEdit( {
 				) }
 
 				{ ! buttonUseIcon && (
-					<RichText
+					<BlockButton
 						className={ buttonClasses }
 						style={ buttonStyles }
 						aria-label={ __( 'Button text' ) }
