@@ -254,8 +254,8 @@ export default function SearchEdit( {
 
 		return (
 			<>
-				{ buttonUseIcon && ( // TODO
-					<button
+				{ buttonUseIcon && (
+					<BlockButton
 						type="button"
 						className={ buttonClasses }
 						style={ buttonStyles }
@@ -266,7 +266,7 @@ export default function SearchEdit( {
 						}
 					>
 						<Icon icon={ search } />
-					</button>
+					</BlockButton>
 				) }
 
 				{ ! buttonUseIcon && (
