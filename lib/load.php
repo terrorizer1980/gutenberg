@@ -114,6 +114,7 @@ require __DIR__ . '/compat/wordpress-6.0/class-wp-theme-json-resolver-6-0.php';
 require __DIR__ . '/compat/wordpress-6.0/block-patterns.php';
 require __DIR__ . '/compat/wordpress-6.0/block-template.php';
 require __DIR__ . '/compat/wordpress-6.0/edit-form-blocks.php';
+require __DIR__ . '/compat/wordpress-6.1/persisted-preferences.php';
 require __DIR__ . '/experimental/register-webfonts-from-theme-json.php';
 require __DIR__ . '/experimental/class-wp-theme-json-resolver-gutenberg.php';
 require __DIR__ . '/experimental/class-wp-webfonts.php';
@@ -121,7 +122,6 @@ require __DIR__ . '/experimental/class-wp-webfonts-provider.php';
 require __DIR__ . '/experimental/class-wp-webfonts-provider-local.php';
 require __DIR__ . '/experimental/webfonts.php';
 require __DIR__ . '/experimental/blocks.php';
-require __DIR__ . '/experimental/persisted-preferences.php';
 
 require __DIR__ . '/blocks.php';
 require __DIR__ . '/compat/wordpress-6.0/block-patterns-update.php';
