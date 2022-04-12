@@ -59,7 +59,8 @@ describe( 'DownloadableBlockListItem', () => {
 			<DownloadableBlockListItem onClick={ jest.fn() } item={ plugin } />
 		);
 		const button = getByRole( 'option' );
-		expect( button.disabled ).toBe( true );
+		// Keeping it false to avoid focus loss.
+		expect( button.disabled ).toBe( false );
 		expect( button.getAttribute( 'aria-disabled' ) ).toBe( 'true' );
 	} );
 
