@@ -31,6 +31,7 @@ import BlockEdit from '../block-edit';
 import BlockInvalidWarning from './block-invalid-warning';
 import BlockMobileToolbar from '../block-mobile-toolbar';
 import { store as blockEditorStore } from '../../store';
+import BlockDraggable from '../block-draggable';
 
 const emptyArray = [];
 function BlockForType( {
@@ -187,6 +188,7 @@ class BlockListBlock extends Component {
 			marginHorizontal,
 			isInnerBlockSelected,
 			name,
+			rootClientId,
 		} = this.props;
 
 		if ( ! attributes || ! blockType ) {
@@ -205,6 +207,7 @@ class BlockListBlock extends Component {
 		const isScreenWidthEqual = blockWidth === screenWidth;
 		const isScreenWidthWider = blockWidth < screenWidth;
 		const isFullWidthToolbar = isFullWidth( align ) || isScreenWidthEqual;
+		const hasParent = !! rootClientId;
 
 		return (
 			<TouchableWithoutFeedback
@@ -254,14 +257,21 @@ class BlockListBlock extends Component {
 								] }
 							/>
 						) }
-						{ isValid ? (
-							this.getBlockForType()
-						) : (
-							<BlockInvalidWarning
-								blockTitle={ title }
-								icon={ icon }
-							/>
-						) }
+						<BlockDraggable
+							enabled={ ! hasParent }
+							clientId={ clientId }
+						>
+							{ () =>
+								isValid ? (
+									this.getBlockForType()
+								) : (
+									<BlockInvalidWarning
+										blockTitle={ title }
+										icon={ icon }
+									/>
+								)
+							}
+						</BlockDraggable>
 						<View
 							style={ styles.neutralToolbar }
 							ref={ this.anchorNodeRef }
